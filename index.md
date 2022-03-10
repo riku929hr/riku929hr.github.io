@@ -26,10 +26,8 @@ title: "Rikuto Sato"
 
 ## ☎️ Contact / SNS
 
-<aside>
-📎 DM・チャットお気軽にどうぞ！
+> 📎 DM・チャットお気軽にどうぞ！
 
-</aside>
 
 🐦 [Twitter](https://twitter.com/riku929hr)
 
@@ -44,3 +42,5 @@ title: "Rikuto Sato"
 💻 [Qiita（Advent Calendar記事と技術メモ）](https://qiita.com/riku929hr)
 
 📊 [Speaker Deck](https://speakerdeck.com/riku929hr)
+
+🖌 [Figma](https://www.figma.com/@riku929hr)
