@@ -51,7 +51,7 @@ const blogs = [
     link: "https://qiita.com/riku929hr",
   },
   {
-    name: "Blog",
+    name: "はてなブログ",
     component: <FontAwesomeIcon icon={faBlog} className="w-10" />,
     link: "https://blog.riku929hr.com",
   },
@@ -64,7 +64,7 @@ const blogs = [
 
 export default function HomePage() {
   return (
-    <div className="">
+    <>
       <header className="hidden bg-sky-50 md:flex">
         <nav className="mx-auto flex max-w-7xl items-center p-6 md:px-8">
           <div className="hidden md:flex md:gap-x-14">
@@ -117,6 +117,6 @@ export default function HomePage() {
           </div>
         </div>
       </main>
-    </div>
+    </>
   );
 }
