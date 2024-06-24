@@ -2,7 +2,7 @@ name: lint
 on: [push, pull_request]
 
 jobs:
-  eslint:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -17,3 +17,5 @@ jobs:
         run: pnpm install
       - name: run eslint
         run: pnpm next lint
+      - name: run prettier
+        run: pnpm format:check
