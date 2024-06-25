@@ -1,0 +1,21 @@
+name: lint
+on: [push, pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: setup pnpm
+        uses: pnpm/action-setup@v4
+      - name: setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: pnpm install
+        run: pnpm install
+      - name: run eslint
+        run: pnpm next lint
+      - name: run prettier
+        run: pnpm format:check
