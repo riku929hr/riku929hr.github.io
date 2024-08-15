@@ -29,7 +29,7 @@ const blogs = [
 export default function BlogLinks() {
   return (
     <>
-      <h2 className="text-center text-2xl">Blog</h2>
+      <h2 className="text-2xl font-bold">Blog</h2>
       <div className="mt-4 flex flex-row justify-center gap-x-6">
         {blogs.map((item) => (
           <div className="h-20 w-40 items-center" key={item.name}>
