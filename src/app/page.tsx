@@ -11,22 +11,7 @@ export default function HomePage() {
         Web developer / Software Engineer
       </p>
       <SnsIcons />
-      <div className="py-8">
-        <BlogLinks />
-      </div>
-      <div className="py-8">
-        <h2 className="text-2xl font-bold">Carrier</h2>
-        <p>
-          詳しくは
-          <a
-            className="underline hover:text-gray-500"
-            href="https://youtrust.jp/users/riku929hr"
-          >
-            YOUTRUST
-          </a>
-          へ
-        </p>
-      </div>
+      <BlogLinks />
     </main>
   );
 }

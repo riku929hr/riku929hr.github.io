@@ -44,7 +44,9 @@ const contacts: link[] = [
   },
   {
     name: "LinkedIn",
-    component: <FontAwesomeIcon icon={faLinkedin} className="w-6" />,
+    component: (
+      <FontAwesomeIcon icon={faLinkedin} className="w-6 text-[#0A66C2]" />
+    ),
     link: "https://www.linkedin.com/in/riku929hr",
     bgColor: "bg-blue-100",
   },
@@ -52,9 +54,9 @@ const contacts: link[] = [
 
 export default function SnsIcons() {
   return (
-    <>
+    <div className="py-4">
       <h2 className="text-2xl font-bold">Contacts</h2>
-      <ul className="mt-8">
+      <ul>
         {contacts.map((item) => (
           <li key={item.name} className="my-4">
             <a
@@ -74,6 +76,6 @@ export default function SnsIcons() {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }
