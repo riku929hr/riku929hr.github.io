@@ -13,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${NotoSansJPRegular.className} antialiased`}>
+    <html lang="jp" className={`${NotoSansJPRegular.className} antialiased`}>
       <body>{children}</body>
     </html>
   );
