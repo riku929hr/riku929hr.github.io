@@ -1,8 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import { faBlog, faBook } from "@fortawesome/free-solid-svg-icons";
-
 import { SiQiita, SiZenn } from "@icons-pack/react-simple-icons";
+
+import Panel from "./components/Panel";
+import Section from "./components/Section";
+
 const blogs = [
   {
     name: "Zenn",
@@ -35,28 +37,12 @@ const blogs = [
 
 export default function BlogLinks() {
   return (
-    <div className="py-4">
-      <h2 className="text-2xl font-bold">Blog</h2>
+    <Section title="Blogs">
       <ul className="gap-x-6">
         {blogs.map((item) => (
-          <li key={item.name} className="my-4">
-            <a
-              href={item.link}
-              className={`${item.bgColor} flex h-16 w-full flex-row rounded-lg hover:text-gray-500`}
-            >
-              <div className="flex w-20 items-center justify-center">
-                {item.component}
-              </div>
-              <div className="w-full content-center">
-                <p className="font-bold">{item.name}</p>
-                {item.description && (
-                  <p className="text-sm">{item.description}</p>
-                )}
-              </div>
-            </a>
-          </li>
+          <Panel key={item.name} {...item} />
         ))}
       </ul>
-    </div>
+    </Section>
   );
 }
