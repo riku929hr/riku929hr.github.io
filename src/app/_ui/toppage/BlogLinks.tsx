@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBlog, faBook } from "@fortawesome/free-solid-svg-icons";
-import { SiQiita, SiZenn } from "@icons-pack/react-simple-icons";
+import { SiQiita, SiSpeakerdeck, SiZenn } from "@icons-pack/react-simple-icons";
 
 import Panel from "./components/Panel";
 import Section from "./components/Section";
@@ -18,6 +18,13 @@ const blogs = [
     component: <SiQiita size={24} className="text-[#55C500]" />,
     link: "https://qiita.com/riku929hr",
     bgColor: "bg-green-100",
+  },
+  {
+    name: "Speaker Deck",
+    component: <SiSpeakerdeck className="text-[#009287]" />,
+    link: "https://speakerdeck.com/riku929hr",
+    bgColor: "bg-teal-100",
+    description: "登壇資料などはこちら",
   },
   {
     name: "はてなブログ",
