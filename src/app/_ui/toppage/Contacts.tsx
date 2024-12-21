@@ -2,7 +2,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGithub,
   faLinkedin,
-  faThreads,
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
@@ -24,10 +23,9 @@ const contacts = [
     bgColor: "bg-zinc-100",
   },
   {
-    name: "Threads",
-    component: <FontAwesomeIcon icon={faThreads} className="w-6" />,
-    link: "https://www.threads.net/@riku929hr",
-    description: "最近はこちらにも投稿しています",
+    name: "mixi2",
+    component: <FontAwesomeIcon icon={faBookmark} className="w-4" />,
+    link: "https://mixi.social/@riku929hr",
     bgColor: "bg-orange-100",
   },
   {
