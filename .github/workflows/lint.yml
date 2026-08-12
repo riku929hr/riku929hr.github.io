@@ -2,7 +2,7 @@ name: lint
 on: push
 
 jobs:
-  eslint:
+  format:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -12,15 +12,13 @@ jobs:
       - name: setup node
         uses: actions/setup-node@v6
         with:
-          node-version: "22"
+          node-version-file: .node-version
           cache: pnpm
       - name: pnpm install
         run: pnpm install
-      - name: run eslint
-        run: pnpm next lint
       - name: run prettier
         run: pnpm format:check
-  tsc:
+  check:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -30,9 +28,9 @@ jobs:
       - name: setup node
         uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version-file: .node-version
           cache: pnpm
       - name: pnpm install
         run: pnpm install
-      - name: run tsc
-        run: tsc --noEmit
+      - name: run astro check
+        run: pnpm check

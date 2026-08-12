@@ -1,0 +1,52 @@
+---
+import Panel from "@/components/Panel.astro";
+import Section from "@/components/Section.astro";
+
+const blogs = [
+  {
+    name: "Zenn",
+    icon: "simple-icons:zenn",
+    iconClass: "size-6 text-[#3EA8FF]",
+    link: "https://zenn.dev/riku929hr",
+    bgColor: "bg-blue-100",
+    description: "技術記事の主な投稿先です",
+  },
+  {
+    name: "Qiita",
+    icon: "simple-icons:qiita",
+    iconClass: "size-6 text-[#55C500]",
+    link: "https://qiita.com/riku929hr",
+    bgColor: "bg-green-100",
+  },
+  {
+    name: "Speaker Deck",
+    icon: "simple-icons:speakerdeck",
+    iconClass: "size-6 text-[#009287]",
+    link: "https://speakerdeck.com/riku929hr",
+    bgColor: "bg-teal-100",
+    description: "登壇資料などはこちら",
+  },
+  {
+    name: "はてなブログ",
+    icon: "fa6-solid:blog",
+    iconClass: "w-6 h-auto",
+    link: "https://blog.riku929hr.com",
+    bgColor: "bg-gray-100",
+    description: "個人ブログです。技術以外のことが多め",
+  },
+  {
+    name: "しずかなインターネット",
+    icon: "fa6-solid:book",
+    iconClass: "w-6 h-auto",
+    link: "https://sizu.me/riku929hr",
+    bgColor: "bg-gray-100",
+    description: "ごくたまに書きます",
+  },
+];
+---
+
+<Section title="Blogs">
+  <ul class="gap-x-6">
+    {blogs.map((item) => <Panel {...item} />)}
+  </ul>
+</Section>
