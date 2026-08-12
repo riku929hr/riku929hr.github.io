@@ -4,41 +4,41 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a personal portfolio website for Rikuto Sato (@riku929hr), built with Next.js using the T3 stack architecture. The site is configured for static export to GitHub Pages and showcases web development work and contact information.
+This is a personal portfolio website for Rikuto Sato (@riku929hr), built with Astro as a fully static, zero-JS site. The site is deployed to GitHub Pages and showcases web development work and contact information.
 
 ## Architecture
 
-- **Framework**: Next.js 15 with App Router and static export (`output: "export"`)
-- **Styling**: Tailwind CSS with custom font (Geist) and Noto Sans JP
-- **Type Safety**: TypeScript with strict configuration
-- **Environment**: T3 environment validation with Zod
+- **Framework**: Astro (static output)
+- **Styling**: Tailwind CSS (v4, CSS-first configuration) with custom font (LINE Seed JP)
+- **Icons**: `astro-icon` with Iconify icon sets (`fa6-brands`, `fa6-solid`, `simple-icons`)
+- **Type Safety**: TypeScript with strict configuration (`astro/tsconfigs/strict`)
 - **Package Manager**: pnpm (version 9.1.2)
 
 ### Project Structure
 
 ```
 src/
-├── app/
-│   ├── _ui/                 # UI components organized by page/feature
-│   │   ├── fonts.ts         # Font configurations
-│   │   └── toppage/         # Homepage components
-│   │       ├── About.tsx
-│   │       ├── BlogLinks.tsx
-│   │       ├── Contacts.tsx
-│   │       ├── Header.tsx
-│   │       └── components/  # Shared components for toppage
-│   ├── layout.tsx           # Root layout with gradient background
-│   └── page.tsx            # Homepage composition
-├── env.js                  # Environment validation schema
+├── layouts/
+│   └── Layout.astro         # Root layout with gradient background
+├── pages/
+│   └── index.astro          # Homepage composition
+├── components/
+│   ├── Section.astro        # Shared section wrapper
+│   ├── Panel.astro          # Shared link panel with icon
+│   └── toppage/             # Homepage components
+│       ├── About.astro
+│       ├── BlogLinks.astro
+│       ├── Contacts.astro
+│       └── Header.astro
 └── styles/
-    └── globals.css         # Global styles and Tailwind imports
+    └── globals.css          # Global styles, Tailwind and font imports
 ```
 
 ### Component Architecture
 
 - **Section-based Layout**: Homepage uses modular sections (Header, About, Contacts, BlogLinks)
-- **Atomic Design**: Shared components in `components/` directories (Panel.tsx, Section.tsx)
-- **Font Strategy**: Custom font loading with Geist Sans and Noto Sans JP for Japanese content
+- **Shared Components**: `Panel.astro` and `Section.astro` are reused across sections
+- **Font Strategy**: Self-hosted LINE Seed JP via `@fontsource/line-seed-jp`, applied through Tailwind's `--default-font-family`
 - **Background**: Gradient blob backgrounds with CSS clip-path for visual appeal
 
 ## Development Commands
@@ -47,27 +47,26 @@ src/
 # Development server
 pnpm dev
 
-# Production build (generates static export in ./out/)
+# Production build (generates static output in ./dist/)
 pnpm build
 
-# Linting
-pnpm lint
+# Preview the production build
+pnpm preview
+
+# Type/template checking
+pnpm check
 
 # Code formatting
 pnpm format        # Format and write changes
 pnpm format:check  # Check formatting without changes
-
-# Production server (after build)
-pnpm start
 ```
 
 ## Key Configuration Files
 
-- `next.config.js`: Configured for static export with environment validation
-- `tailwind.config.ts`: Extended with custom Geist font family
-- `src/env.js`: T3-style environment validation with Zod schemas
-- `tsconfig.json`: TypeScript configuration for Next.js
+- `astro.config.mjs`: Astro configuration (site URL, Tailwind Vite plugin, `astro-icon` integration)
+- `src/styles/globals.css`: Tailwind v4 CSS-first configuration and font imports
+- `tsconfig.json`: Extends `astro/tsconfigs/strict`
 
 ## Deployment
 
-The site is configured for static export to GitHub Pages. The build process generates files in the `./out/` directory which can be deployed to any static hosting service.
+The site builds to the `./dist/` directory, which is deployed to GitHub Pages via `.github/workflows/deploy.yml`. `public/CNAME` ensures the custom domain is preserved in the build output.
