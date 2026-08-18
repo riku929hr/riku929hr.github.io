@@ -5,11 +5,10 @@ import Section from "@/components/Section.astro";
 const blogs = [
   {
     name: "はてなブログ",
-    icon: "fa6-solid:blog",
-    iconClass: "w-6 h-auto",
+    logoSrc: "/logos/hatenablog.svg",
     link: "https://blog.riku929hr.com",
     bgColor: "bg-gray-100",
-    description: "個人ブログです。技術以外のことが多め",
+    description: "個人ブログです",
   },
   {
     name: "Zenn",
@@ -29,8 +28,7 @@ const blogs = [
   },
   {
     name: "しずかなインターネット",
-    icon: "fa6-solid:book",
-    iconClass: "w-6 h-auto",
+    logoSrc: "/logos/shizukanainternet.svg",
     link: "https://sizu.me/riku929hr",
     bgColor: "bg-gray-100",
     description: "ごくたまに書きます",
@@ -46,7 +44,7 @@ const blogs = [
 ---
 
 <Section title="Blogs">
-  <ul class="gap-x-6">
+  <ul class="grid grid-cols-1 gap-3 sm:grid-cols-2">
     {blogs.map((item) => <Panel {...item} />)}
   </ul>
 </Section>
