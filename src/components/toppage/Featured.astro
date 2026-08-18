@@ -1,0 +1,85 @@
+---
+import Section from "@/components/Section.astro";
+import { fetchOgImage } from "@/lib/ogp";
+
+const items = [
+  {
+    name: "AIは何を「速く」したのか｜AI DevEx Conference 2026での学び",
+    link: "https://www.m3tech.blog/entry/2026/07/30/173031",
+    fallbackImage:
+      "https://ogimage.blog.st-hatena.com/8599973812294943206/14945776032058806244/1785400236",
+    badge: "会社ブログ",
+    date: "2026.07",
+  },
+  {
+    name: "AI時代、どう学ぶか",
+    link: "https://www.m3tech.blog/entry/2025/09/09/171850",
+    fallbackImage:
+      "https://ogimage.blog.st-hatena.com/8599973812294943206/6802888565222029912/1757405931",
+    badge: "会社ブログ",
+    date: "2025.09",
+  },
+  {
+    name: "良いテストコードを書くためのガイドライン〜作成から運用まで〜",
+    link: "https://fortee.jp/phpcon-2024/proposal/7edc5567-d741-4d6a-bfa7-732afb7dd311",
+    fallbackImage:
+      "https://fortee.jp/phpcon-2024/proposal/og-image/7edc5567-d741-4d6a-bfa7-732afb7dd311.png",
+    badge: "登壇資料",
+    date: "2024.12",
+  },
+  {
+    name: "良いテストコードを書くためのガイドライン〜作成から運用まで〜",
+    link: "https://www.youtube.com/watch?v=IdofKxEuQ4E&list=PL55Rz5TsPc_dqyrLUecD211ycdrn9CHLZ&index=1&t=1s",
+    fallbackImage: "https://i.ytimg.com/vi/IdofKxEuQ4E/maxresdefault.jpg",
+    badge: "登壇動画",
+    date: "2024.12",
+  },
+  {
+    name: "エムスリーテックブック9",
+    link: "https://techbookfest.org/product/tQtQhhFVHnRkH0bFCUikYK?productVariantID=5prWVthbVuZMdKxmcTBut0",
+    fallbackImage:
+      "https://techbookfest.org/api/product/ogp/image/tQtQhhFVHnRkH0bFCUikYK",
+    badge: "同人誌",
+  },
+];
+
+const featured = await Promise.all(
+  items.map(async ({ fallbackImage, ...item }) => ({
+    ...item,
+    ogImage: (await fetchOgImage(item.link)) ?? fallbackImage,
+  })),
+);
+---
+
+<Section title="Featured">
+  <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+    {
+      featured.map((item) => (
+        <li>
+          <a
+            href={item.link}
+            class="block overflow-hidden rounded-lg bg-gray-100 hover:opacity-80"
+          >
+            <img
+              src={item.ogImage}
+              alt={item.name}
+              loading="lazy"
+              class="aspect-video w-full object-cover"
+            />
+            <div class="p-3">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="rounded-full bg-white/60 px-2 py-0.5 text-xs">
+                  {item.badge}
+                </span>
+                {item.date && (
+                  <span class="text-xs text-gray-500">{item.date}</span>
+                )}
+              </div>
+              <p class="mt-1 font-bold">{item.name}</p>
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</Section>
