@@ -16,10 +16,10 @@ const { name, link, bgColor, icon, iconClass, description, badge, date } =
   Astro.props;
 ---
 
-<li class="my-4">
+<li class="h-full">
   <a
     href={link}
-    class={`${bgColor} flex min-h-16 w-full flex-row rounded-lg hover:text-gray-500`}
+    class={`${bgColor} flex h-full min-h-16 w-full flex-row rounded-lg transition hover:text-gray-500`}
   >
     <div class="flex w-20 items-center justify-center">
       <Icon name={icon} class={iconClass} />

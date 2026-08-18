@@ -52,13 +52,13 @@ const featured = await Promise.all(
 ---
 
 <Section title="Featured">
-  <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+  <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
     {
       featured.map((item) => (
-        <li>
+        <li class="h-full">
           <a
             href={item.link}
-            class="block overflow-hidden rounded-lg bg-gray-100 hover:opacity-80"
+            class="block h-full overflow-hidden rounded-lg bg-gray-100 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
           >
             <img
               src={item.ogImage}

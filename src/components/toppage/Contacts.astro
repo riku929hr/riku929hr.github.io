@@ -1,6 +1,5 @@
 ---
-import Panel from "@/components/Panel.astro";
-import Section from "@/components/Section.astro";
+import { Icon } from "astro-icon/components";
 
 const contacts = [
   {
@@ -42,8 +41,28 @@ const contacts = [
 ];
 ---
 
-<Section title="Contacts">
-  <ul>
-    {contacts.map((item) => <Panel {...item} />)}
+<div class="mt-6">
+  <p class="text-sm font-semibold tracking-wide text-gray-500 uppercase">
+    Contact
+  </p>
+  <ul class="mt-3 flex flex-wrap gap-3">
+    {
+      contacts.map((item) => (
+        <li>
+          <a
+            href={item.link}
+            title={
+              item.description
+                ? `${item.name} - ${item.description}`
+                : item.name
+            }
+            aria-label={item.name}
+            class={`${item.bgColor} flex size-12 items-center justify-center rounded-full transition hover:scale-105 hover:opacity-80`}
+          >
+            <Icon name={item.icon} class={item.iconClass} />
+          </a>
+        </li>
+      ))
+    }
   </ul>
-</Section>
+</div>
