@@ -18,8 +18,7 @@ const contacts = [
   },
   {
     name: "mixi2",
-    icon: "fa6-solid:bookmark",
-    iconClass: "w-4 h-auto",
+    logoSrc: "/logos/mixi2.svg",
     link: "https://mixi.social/@riku929hr",
     bgColor: "bg-orange-100",
   },
@@ -59,7 +58,11 @@ const contacts = [
             aria-label={item.name}
             class={`${item.bgColor} flex size-12 items-center justify-center rounded-full transition hover:scale-105 hover:opacity-80`}
           >
-            <Icon name={item.icon} class={item.iconClass} />
+            {item.logoSrc ? (
+              <img src={item.logoSrc} alt="" class="h-6 w-6" />
+            ) : (
+              item.icon && <Icon name={item.icon} class={item.iconClass} />
+            )}
           </a>
         </li>
       ))
