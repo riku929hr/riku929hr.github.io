@@ -1,7 +1,73 @@
+---
+import { Icon } from "astro-icon/components";
+
+const contacts = [
+  {
+    name: "GitHub",
+    icon: "fa6-brands:github",
+    iconClass: "w-6 h-auto",
+    link: "https://github.com/riku929hr",
+    bgColor: "bg-gray-100",
+  },
+  {
+    name: "X(Twitter)",
+    icon: "fa6-brands:x-twitter",
+    iconClass: "w-6 h-auto",
+    link: "https://twitter.com/riku929hr",
+    bgColor: "bg-zinc-100",
+  },
+  {
+    name: "mixi2",
+    logoSrc: "/logos/mixi2.svg",
+    link: "https://mixi.social/@riku929hr",
+    bgColor: "bg-orange-100",
+  },
+  {
+    name: "YOUTRUST",
+    link: "https://youtrust.jp/users/riku929hr",
+    icon: "fa6-solid:bookmark",
+    iconClass: "w-4 h-auto",
+    description: "詳しい経歴はこちら",
+    bgColor: "bg-green-100",
+  },
+  {
+    name: "LinkedIn",
+    icon: "fa6-brands:linkedin",
+    iconClass: "w-6 h-auto text-[#0A66C2]",
+    link: "https://www.linkedin.com/in/riku929hr",
+    bgColor: "bg-blue-100",
+  },
+];
+---
+
 <div class="pb-4">
   <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">Rikuto Sato</h1>
   <p class="mt-2 text-xl font-bold text-gray-700">@riku929hr</p>
-  <p class="mt-3 text-lg leading-8 text-gray-600">
+  <ul class="mt-3 flex flex-wrap gap-3">
+    {
+      contacts.map((item) => (
+        <li>
+          <a
+            href={item.link}
+            title={
+              item.description
+                ? `${item.name} - ${item.description}`
+                : item.name
+            }
+            aria-label={item.name}
+            class={`${item.bgColor} flex size-12 items-center justify-center rounded-full transition hover:scale-105 hover:opacity-80`}
+          >
+            {item.logoSrc ? (
+              <img src={item.logoSrc} alt="" class="h-8 w-8" />
+            ) : (
+              item.icon && <Icon name={item.icon} class={item.iconClass} />
+            )}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <p class="mt-4 text-lg leading-8 text-gray-600">
     Web developer / Software Engineer
   </p>
 </div>
